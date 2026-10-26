@@ -1,0 +1,1591 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MD Tabrej Bahar Alom | Student Portfolio</title>
+
+    <meta name="description"
+          content="Explore the student portfolio of MD Tabrej Bahar Alom, including skills, web development projects, case studies and contact information.">
+
+    <style>
+        /* ========================================
+           1. BASIC RESET AND GLOBAL STYLES
+        ======================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --background: #080d18;
+            --surface: #101827;
+            --surface-light: #162238;
+            --blue: #3b82f6;
+            --blue-light: #60a5fa;
+            --text: #f1f5f9;
+            --muted: #a0aec0;
+            --border: rgba(148, 163, 184, 0.18);
+            --radius: 18px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .container {
+            width: min(1120px, 90%);
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-heading .eyebrow {
+            color: var(--blue-light);
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            line-height: 1.2;
+            margin: 12px 0;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        .accent {
+            color: var(--blue-light);
+        }
+
+        /* ========================================
+           2. NAVIGATION BAR
+        ======================================== */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(8, 13, 24, 0.94);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(14px);
+        }
+
+        .nav-content {
+            min-height: 76px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: var(--blue-light);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 0.9rem;
+            transition: color 0.25s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus-visible {
+            color: var(--blue-light);
+        }
+
+        .nav-contact {
+            padding: 9px 17px;
+            border: 1px solid var(--blue);
+            border-radius: 9px;
+            color: var(--text) !important;
+        }
+
+        .nav-contact:hover {
+            background: var(--blue);
+        }
+
+        /* ========================================
+           3. REUSABLE BUTTONS
+        ======================================== */
+
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 22px;
+            border: 1px solid var(--blue);
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: transform 0.25s ease,
+                        background 0.25s ease,
+                        box-shadow 0.25s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(59, 130, 246, 0.18);
+        }
+
+        .btn-primary {
+            background: var(--blue);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+        }
+
+        .btn-outline {
+            color: var(--blue-light);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        /* ========================================
+           4. HOME / HERO SECTION
+        ======================================== */
+
+        .hero {
+            min-height: 82vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 85px 0;
+            background:
+                radial-gradient(
+                    circle at 85% 20%,
+                    rgba(59, 130, 246, 0.15),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 10% 90%,
+                    rgba(37, 99, 235, 0.09),
+                    transparent 30%
+                );
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 0.8fr;
+            align-items: center;
+            gap: 65px;
+        }
+
+        .availability {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 7px 13px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(96, 165, 250, 0.25);
+            border-radius: 30px;
+            color: var(--blue-light);
+            font-size: 0.82rem;
+            margin-bottom: 25px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #4ade80;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.7rem, 6vw, 4.7rem);
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            color: var(--blue-light);
+        }
+
+        .hero-description {
+            max-width: 620px;
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        .hero-note {
+            margin-top: 24px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .hero-card {
+            position: relative;
+            padding: 30px;
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            background: linear-gradient(
+                145deg,
+                rgba(22, 34, 56, 0.95),
+                rgba(16, 24, 39, 0.9)
+            );
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
+        }
+
+        .profile-placeholder {
+            width: 125px;
+            height: 125px;
+            margin: 0 auto 22px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--blue), #1e40af);
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            font-size: 2.4rem;
+            font-weight: 800;
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.2);
+        }
+
+        .hero-card h2 {
+            text-align: center;
+            font-size: 1.35rem;
+        }
+
+        .hero-card > p {
+            text-align: center;
+            color: var(--muted);
+            margin-top: 5px;
+            margin-bottom: 24px;
+        }
+
+        .quick-info {
+            display: grid;
+            gap: 12px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.035);
+        }
+
+        .info-icon {
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+            border-radius: 10px;
+            background: rgba(59, 130, 246, 0.13);
+            color: var(--blue-light);
+        }
+
+        .info-item strong {
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        .info-item small {
+            color: var(--muted);
+            overflow-wrap: anywhere;
+        }
+
+        /* ========================================
+           5. ABOUT ME SECTION
+        ======================================== */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 55px;
+            align-items: start;
+        }
+
+        .about-text h3 {
+            font-size: 1.6rem;
+            margin-bottom: 18px;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .about-highlight {
+            padding: 25px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--blue);
+            border-radius: 12px;
+            color: var(--muted);
+        }
+
+        .about-highlight strong {
+            display: block;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .about-facts {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .fact-card {
+            padding: 23px;
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            background: var(--surface);
+        }
+
+        .fact-card .fact-icon {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .fact-card h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .fact-card p {
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        /* ========================================
+           6. SKILLS SECTION
+        ======================================== */
+
+        .skills-section {
+            background: #0b1220;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .skill-card {
+            padding: 27px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+            transition: transform 0.25s ease,
+                        border-color 0.25s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--blue);
+        }
+
+        .skill-icon {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.15rem;
+        }
+
+        .skill-card p {
+            color: var(--muted);
+            font-size: 0.92rem;
+            margin-bottom: 18px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 7px;
+            background: rgba(59, 130, 246, 0.11);
+            border: 1px solid rgba(96, 165, 250, 0.15);
+            color: var(--blue-light);
+            font-size: 0.78rem;
+        }
+
+        /* ========================================
+           7. PROJECTS SECTION
+        ======================================== */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            transition: transform 0.25s ease,
+                        border-color 0.25s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(96, 165, 250, 0.65);
+        }
+
+        .project-number {
+            color: var(--blue-light);
+            font-size: 0.85rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+        }
+
+        .project-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+
+        .project-card .skill-tags {
+            margin-bottom: 24px;
+        }
+
+        .project-card .btn {
+            align-self: flex-start;
+            margin-top: auto;
+        }
+
+        /* ========================================
+           8. CASE STUDIES SECTION
+        ======================================== */
+
+        .case-studies {
+            background: #0b1220;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .case-study-list {
+            display: grid;
+            gap: 22px;
+        }
+
+        .case-study-card {
+            display: grid;
+            grid-template-columns: 75px 1fr auto;
+            align-items: center;
+            gap: 25px;
+            padding: 28px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+            transition: border-color 0.25s ease,
+                        transform 0.25s ease;
+        }
+
+        .case-study-card:hover {
+            border-color: var(--blue);
+            transform: translateX(4px);
+        }
+
+        .case-study-number {
+            width: 68px;
+            height: 68px;
+            display: grid;
+            place-items: center;
+            border-radius: 16px;
+            background: rgba(59, 130, 246, 0.12);
+            color: var(--blue-light);
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+
+        .case-study-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 7px;
+        }
+
+        .case-study-content p {
+            color: var(--muted);
+            font-size: 0.92rem;
+            margin-bottom: 12px;
+        }
+
+        .case-study-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            min-width: 150px;
+        }
+
+        .case-study-actions .btn {
+            padding: 10px 14px;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        .github-note {
+            margin-top: 30px;
+            padding: 22px;
+            text-align: center;
+            border: 1px dashed rgba(96, 165, 250, 0.4);
+            border-radius: 14px;
+            color: var(--muted);
+        }
+
+        .github-note a {
+            color: var(--blue-light);
+            font-weight: bold;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        /* ========================================
+           9. CONTACT SECTION
+        ======================================== */
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 45px;
+            align-items: start;
+        }
+
+        .contact-intro h3 {
+            font-size: 1.7rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-intro > p {
+            color: var(--muted);
+            margin-bottom: 28px;
+        }
+
+        .contact-details {
+            display: grid;
+            gap: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--surface);
+        }
+
+        .contact-item .info-icon {
+            font-size: 1.1rem;
+        }
+
+        .contact-item strong {
+            display: block;
+            font-size: 0.92rem;
+        }
+
+        .contact-item a,
+        .contact-item span {
+            color: var(--muted);
+            font-size: 0.9rem;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-item a:hover {
+            color: var(--blue-light);
+        }
+
+        .contact-card {
+            padding: 30px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+        }
+
+        .contact-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-card > p {
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+
+        .contact-message {
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--background);
+            color: var(--muted);
+            margin-bottom: 22px;
+        }
+
+        /* ========================================
+           10. FOOTER
+        ======================================== */
+
+        .footer {
+            border-top: 1px solid var(--border);
+            padding: 28px 0;
+            background: #060a12;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .footer p {
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--blue-light);
+        }
+
+        /* ========================================
+           11. ACCESSIBILITY AND RESPONSIVENESS
+        ======================================== */
+
+        a:focus-visible {
+            outline: 3px solid var(--blue-light);
+            outline-offset: 4px;
+        }
+
+        @media (max-width: 950px) {
+            .nav-content {
+                padding: 15px 0;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 14px 20px;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-card {
+                max-width: 480px;
+                width: 100%;
+                margin: 0 auto;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .case-study-card {
+                grid-template-columns: 65px 1fr;
+            }
+
+            .case-study-actions {
+                grid-column: 2;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .section {
+                padding: 70px 0;
+            }
+
+            .container {
+                width: 92%;
+            }
+
+            .nav-links {
+                gap: 10px 15px;
+            }
+
+            .nav-links a {
+                font-size: 0.82rem;
+            }
+
+            .nav-contact {
+                padding: 6px 10px;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 65px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.65rem;
+                letter-spacing: -1.3px;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .hero-card {
+                padding: 22px;
+            }
+
+            .button-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .button-group .btn {
+                width: 100%;
+            }
+
+            .about-facts,
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .fact-card {
+                padding: 20px;
+            }
+
+            .skill-card,
+            .project-card {
+                padding: 23px;
+            }
+
+            .case-study-card {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                padding: 23px;
+            }
+
+            .case-study-number {
+                width: 55px;
+                height: 55px;
+            }
+
+            .case-study-actions {
+                grid-column: auto;
+                flex-direction: column;
+            }
+
+            .case-study-actions .btn {
+                width: 100%;
+            }
+
+            .contact-card {
+                padding: 22px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ========================================
+         NAVIGATION
+    ========================================= -->
+
+    <header class="navbar">
+        <nav class="container nav-content" aria-label="Main navigation">
+
+            <a href="#home" class="logo">
+                TABREJ<span>.</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#case-studies">Case Studies</a></li>
+                <li><a href="#contact" class="nav-contact">Contact</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ========================================
+             HOME SECTION
+        ========================================= -->
+
+        <section class="hero" id="home">
+            <div class="container hero-grid">
+
+                <div class="hero-content">
+
+                    <div class="availability">
+                        <span class="status-dot"></span>
+                        Student Portfolio
+                    </div>
+
+                    <p class="accent">HELLO, WORLD! I'M</p>
+
+                    <h1>
+                        MD Tabrej<br>
+                        <span>Bahar Alom.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        A motivated student exploring web development,
+                        creative design, and modern technology. I enjoy
+                        learning new skills and turning ideas into
+                        practical digital experiences.
+                    </p>
+
+                    <div class="button-group">
+                        <a href="#projects" class="btn btn-primary">
+                            Explore My Work &rarr;
+                        </a>
+
+                        <a href="#contact" class="btn btn-outline">
+                            Contact Me
+                        </a>
+                    </div>
+
+                    <p class="hero-note">
+                        Focused on learning, building, and improving
+                        one project at a time.
+                    </p>
+
+                </div>
+
+                <aside class="hero-card" aria-label="Student introduction">
+
+                    <div class="profile-placeholder" aria-hidden="true">
+                        TA
+                    </div>
+
+                    <h2>MD Tabrej Bahar Alom</h2>
+
+                    <p>Student | Aspiring Web Developer</p>
+
+                    <div class="quick-info">
+
+                        <div class="info-item">
+                            <div class="info-icon" aria-hidden="true">
+                                &#128218;
+                            </div>
+                            <div>
+                                <strong>Learning</strong>
+                                <small>Web development and design</small>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon" aria-hidden="true">
+                                &#128187;
+                            </div>
+                            <div>
+                                <strong>Building</strong>
+                                <small>Web projects and case studies</small>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon" aria-hidden="true">
+                                &#128640;
+                            </div>
+                            <div>
+                                <strong>Goal</strong>
+                                <small>Grow through practical experience</small>
+                            </div>
+                        </div>
+
+                    </div>
+                </aside>
+
+            </div>
+        </section>
+
+        <!-- ========================================
+             ABOUT ME SECTION
+        ========================================= -->
+
+        <section class="section" id="about">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">Get to know me</span>
+                    <h2>About <span class="accent">Me</span></h2>
+                    <p>
+                        A little about my interests, learning journey,
+                        and approach to creating digital projects.
+                    </p>
+                </div>
+
+                <div class="about-grid">
+
+                    <div class="about-text">
+                        <h3>
+                            Learning today.<br>
+                            <span class="accent">Building for tomorrow.</span>
+                        </h3>
+
+                        <p>
+                            I am a student with an interest in technology,
+                            website development, and digital creativity.
+                            My portfolio showcases my learning journey
+                            and the projects I work on as I develop
+                            my technical abilities.
+                        </p>
+
+                        <p>
+                            I enjoy understanding how websites are
+                            structured, how CSS creates engaging designs,
+                            and how responsive layouts make websites
+                            useful across different screen sizes.
+                        </p>
+
+                        <p>
+                            Each assignment and project is an opportunity
+                            to practise problem-solving, improve my code,
+                            and learn something new.
+                        </p>
+
+                        <div class="about-highlight">
+                            <strong>My approach</strong>
+                            Stay curious, practise consistently,
+                            learn from feedback, and build projects
+                            that demonstrate real progress.
+                        </div>
+                    </div>
+
+                    <div class="about-facts">
+
+                        <article class="fact-card">
+                            <div class="fact-icon" aria-hidden="true">
+                                &#127891;
+                            </div>
+                            <h4>Student</h4>
+                            <p>
+                                Building knowledge through coursework
+                                and practical assignments.
+                            </p>
+                        </article>
+
+                        <article class="fact-card">
+                            <div class="fact-icon" aria-hidden="true">
+                                &#127912;
+                            </div>
+                            <h4>Creative Design</h4>
+                            <p>
+                                Interested in clean layouts,
+                                readable content, and good usability.
+                            </p>
+                        </article>
+
+                        <article class="fact-card">
+                            <div class="fact-icon" aria-hidden="true">
+                                &#128187;
+                            </div>
+                            <h4>Web Development</h4>
+                            <p>
+                                Practising HTML, CSS, and
+                                responsive web design.
+                            </p>
+                        </article>
+
+                        <article class="fact-card">
+                            <div class="fact-icon" aria-hidden="true">
+                                &#128161;
+                            </div>
+                            <h4>Continuous Learning</h4>
+                            <p>
+                                Improving through experimentation,
+                                projects, and feedback.
+                            </p>
+                        </article>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             SKILLS SECTION
+        ========================================= -->
+
+        <section class="section skills-section" id="skills">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">What I'm learning</span>
+                    <h2>My <span class="accent">Skills</span></h2>
+                    <p>
+                        Technologies and practical abilities that
+                        I am developing through study and projects.
+                    </p>
+                </div>
+
+                <div class="skills-grid">
+
+                    <article class="skill-card">
+                        <div class="skill-icon" aria-hidden="true">
+                            &#60;/&#62;
+                        </div>
+                        <h3>HTML5</h3>
+                        <p>
+                            Creating structured web pages with
+                            semantic elements and accessible content.
+                        </p>
+                        <div class="skill-tags">
+                            <span class="tag">Semantic HTML</span>
+                            <span class="tag">Forms</span>
+                            <span class="tag">Page Structure</span>
+                        </div>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon" aria-hidden="true">
+                            &#127912;
+                        </div>
+                        <h3>CSS3</h3>
+                        <p>
+                            Styling pages with layouts, colours,
+                            spacing, and responsive design techniques.
+                        </p>
+                        <div class="skill-tags">
+                            <span class="tag">Flexbox</span>
+                            <span class="tag">Grid</span>
+                            <span class="tag">Media Queries</span>
+                        </div>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon" aria-hidden="true">
+                            &#128187;
+                        </div>
+                        <h3>Bootstrap</h3>
+                        <p>
+                            Exploring reusable components and
+                            responsive layouts with Bootstrap.
+                        </p>
+                        <div class="skill-tags">
+                            <span class="tag">Grid System</span>
+                            <span class="tag">Components</span>
+                            <span class="tag">Utilities</span>
+                        </div>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon" aria-hidden="true">
+                            &#128295;
+                        </div>
+                        <h3>Problem Solving</h3>
+                        <p>
+                            Breaking assignments into smaller tasks
+                            and working through issues systematically.
+                        </p>
+                        <div class="skill-tags">
+                            <span class="tag">Logical Thinking</span>
+                            <span class="tag">Debugging</span>
+                        </div>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon" aria-hidden="true">
+                            &#128193;
+                        </div>
+                        <h3>GitHub</h3>
+                        <p>
+                            Organising project files, publishing
+                            source code, and sharing project work.
+                        </p>
+                        <div class="skill-tags">
+                            <span class="tag">Repositories</span>
+                            <span class="tag">File Management</span>
+                        </div>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon" aria-hidden="true">
+                            &#128202;
+                        </div>
+                        <h3>Project Documentation</h3>
+                        <p>
+                            Presenting project goals, technologies,
+                            source files, and learning outcomes.
+                        </p>
+                        <div class="skill-tags">
+                            <span class="tag">Case Studies</span>
+                            <span class="tag">Documentation</span>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             PROJECTS SECTION
+        ========================================= -->
+
+        <section class="section" id="projects">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">Selected work</span>
+                    <h2>My <span class="accent">Projects</span></h2>
+                    <p>
+                        A collection of coursework and web development
+                        exercises that demonstrate my learning journey.
+                    </p>
+                </div>
+
+                <div class="projects-grid">
+
+                    <article class="project-card">
+                        <span class="project-number">PROJECT 01</span>
+
+                        <h3>Creating and Styling a Webpage</h3>
+
+                        <p>
+                            A webpage project focused on structuring
+                            content with HTML and improving its
+                            appearance with CSS styling.
+                        </p>
+
+                        <div class="skill-tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">Web Design</span>
+                        </div>
+
+                        <a
+                            href="https://github.com/mdtabrejbaharalom-ctrl/Case-study-backup"
+                            class="btn btn-outline"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            View GitHub Repository &rarr;
+                        </a>
+                    </article>
+
+                    <article class="project-card">
+                        <span class="project-number">PROJECT 02</span>
+
+                        <h3>Little Lemon Bootstrap Menu</h3>
+
+                        <p>
+                            A restaurant menu website exercise focused
+                            on Bootstrap styling, layout structure,
+                            and presenting menu content clearly.
+                        </p>
+
+                        <div class="skill-tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">Bootstrap</span>
+                            <span class="tag">Responsive Layout</span>
+                        </div>
+
+                        <a
+                            href="https://github.com/mdtabrejbaharalom-ctrl/Case-study-backup"
+                            class="btn btn-outline"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            View GitHub Repository &rarr;
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             CASE STUDIES SECTION
+        ========================================= -->
+
+        <section class="section case-studies" id="case-studies">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">Academic work</span>
+                    <h2>My <span class="accent">Case Studies</span></h2>
+                    <p>
+                        Explore my case study submissions and project
+                        documents stored in my GitHub repository.
+                    </p>
+                </div>
+
+                <div class="case-study-list">
+
+                    <!-- CASE STUDY 1 -->
+
+                    <article class="case-study-card">
+
+                        <div class="case-study-number">01</div>
+
+                        <div class="case-study-content">
+                            <h3>
+                                Creating and Styling a Webpage
+                            </h3>
+
+                            <p>
+                                Explore my first case study about
+                                webpage structure, HTML elements,
+                                and CSS styling.
+                            </p>
+
+                            <div class="skill-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">Case Study 1</span>
+                            </div>
+                        </div>
+
+                        <div class="case-study-actions">
+
+                            <!-- Replace CASE-STUDY-1.pdf with
+                                 the exact PDF filename in GitHub. -->
+
+                            <a
+                                href="https://github.com/mdtabrejbaharalom-ctrl/Case-study-backup/blob/main/CASE-STUDY-1.pdf"
+                                class="btn btn-primary"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                View PDF &#8599;
+                            </a>
+
+                            <a
+                                href="https://github.com/mdtabrejbaharalom-ctrl/Case-study-backup"
+                                class="btn btn-outline"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                Repository
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                    <!-- CASE STUDY 2 -->
+
+                    <article class="case-study-card">
+
+                        <div class="case-study-number">02</div>
+
+                        <div class="case-study-content">
+                            <h3>
+                                Little Lemon Bootstrap Menu
+                            </h3>
+
+                            <p>
+                                Explore my second case study about
+                                building a restaurant menu interface
+                                using HTML and Bootstrap.
+                            </p>
+
+                            <div class="skill-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">Bootstrap</span>
+                                <span class="tag">Case Study 2</span>
+                            </div>
+                        </div>
+
+                        <div class="case-study-actions">
+
+                            <!-- Replace CASE-STUDY-2.pdf with
+                                 the exact PDF filename in GitHub. -->
+
+                            <a
+                                href="https://github.com/mdtabrejbaharalom-ctrl/Case-study-backup/blob/main/CASE-STUDY-2.pdf"
+                                class="btn btn-primary"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                View PDF &#8599;
+                            </a>
+
+                            <a
+                                href="https://github.com/mdtabrejbaharalom-ctrl/Case-study-backup"
+                                class="btn btn-outline"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                Repository
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+                <div class="github-note">
+                    All my project files and case study documents are
+                    organised in my GitHub repository.
+                    <br><br>
+
+                    <a
+                        href="https://github.com/mdtabrejbaharalom-ctrl/Case-study-backup"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        Visit My GitHub Repository &rarr;
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================
+             CONTACT SECTION
+        ========================================= -->
+
+        <section class="section" id="contact">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">Let's connect</span>
+                    <h2>Contact <span class="accent">Me</span></h2>
+                    <p>
+                        Have a question about my work or want to
+                        connect? Feel free to reach out.
+                    </p>
+                </div>
+
+                <div class="contact-grid">
+
+                    <div class="contact-intro">
+                        <h3>
+                            Let's start a <span class="accent">conversation.</span>
+                        </h3>
+
+                        <p>
+                            I welcome opportunities to learn, share
+                            ideas, and connect with people interested
+                            in technology and web development.
+                        </p>
+
+                        <div class="contact-details">
+
+                            <div class="contact-item">
+                                <div class="info-icon" aria-hidden="true">
+                                    &#9993;
+                                </div>
+                                <div>
+                                    <strong>Email</strong>
+                                    <a href="mailto:mdtabrej.b@somaiya.edu">
+                                        mdtabrej.b@somaiya.edu
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="info-icon" aria-hidden="true">
+                                    &#128187;
+                                </div>
+                                <div>
+                                    <strong>GitHub</strong>
+                                    <a
+                                        href="https://github.com/mdtabrejbaharalom-ctrl"
+                                        target="_blank"
+                                        rel="noopener noreferrer">
+                                        View my GitHub profile
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3>Interested in my work?</h3>
+
+                        <p>
+                            Explore my source code or send me an email
+                            about my projects and case studies.
+                        </p>
+
+                        <div class="contact-message">
+                            Thank you for visiting my portfolio.
+                            I appreciate your time and interest in
+                            my academic work.
+                        </div>
+
+                        <div class="button-group">
+
+                            <a
+                                href="mailto:mdtabrej.b@somaiya.edu?subject=Portfolio%20Enquiry"
+                                class="btn btn-primary">
+                                Send Me an Email &#8594;
+                            </a>
+
+                            <a
+                                href="https://github.com/mdtabrejbaharalom-ctrl/Case-study-backup"
+                                class="btn btn-outline"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                View My Work
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================
+         FOOTER
+    ========================================= -->
+
+    <footer class="footer">
+        <div class="container footer-content">
+
+            <p>
+                &copy; 2026 MD Tabrej Bahar Alom.
+                Built with HTML and CSS.
+            </p>
+
+            <div class="footer-links">
+                <a href="#home">Back to Top &uarr;</a>
+
+                <a
+                    href="https://github.com/mdtabrejbaharalom-ctrl/Case-study-backup"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    GitHub
+                </a>
+
+                <a href="mailto:mdtabrej.b@somaiya.edu">
+                    Email
+                </a>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
